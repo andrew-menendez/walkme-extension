@@ -1,0 +1,28 @@
+{
+  "name": "Andrew WM Extension",
+  "version":"1.0",
+  "manifest_version":2,
+  "description": "My fake injector",
+  "permissions": ["storage","activeTab","tabs","http://*/","https://*/"],
+  "browser_action": {
+    "default_icon": "icons/inject-48.png",
+    "default_title": "Inject!"
+  },
+  "icons":{
+    "16":"/icons/inject-16.png",
+    "48":"/icons/inject-48.png",
+    "128":"/icons/inject-128.png"
+  },
+  "background": {
+    //"page":"background.html",
+    "scripts": ["inject.js"],
+    "persistent": false
+    },
+
+  "options_ui": {
+    // Required.
+    "page": "/options/options.html",
+    // Recommended.
+    "chrome_style": true
+  }
+}
