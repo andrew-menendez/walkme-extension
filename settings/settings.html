@@ -11,36 +11,40 @@
   <div id="header">
     <h1>Custom Injector</h1>
   </div>
-  <button id="clickme">click me</button>
 
   <form id = "form" >
+        <label>Account</label>
         <select id="account">
-           <option value="fitness">Fitness</option>
-           <option value="travel">Travel</option>
-           <option value="school">Education</option>
+        <option>pick an account</option>
+        <!-- options inserted via jquery -->
         </select>
-        <input type = "submit" id = "submitButton">
+        <br>
+        <label>Environment</label>
+        <select id="env">
+        <option>pick an env</option>
+         <option value="prod">prod</option>
+         <option value="test">test</option>
+         <option value="success">success</option>
+        </select>
+        <br>
+
+        <br>
+        
   </form>
-  <p id="result"> huh?</p>
-
-  
-  <h3>Snippet Environment:</h3>
-   <select id="env">
-     <option value="prod">prod</option>
-     <option value="test">test</option>
-     <option value="success">success</option>
-    </select>
-  </h3>
-    <div id="status"></div>
-    <button id="save">Save</button>
-
+  <p id="result1"> you selected</p>
+  <p id="result2">environment </p>
+  <textarea rows="4" cols="50" id="snippet-display">your snippet url </textarea>
+  <br>
+  <button id="checkbutton">Check Snippet</button>
+  <br>
+  <div id="injectbuttonarea">
+    <button id="inject">Inject Snippet</button>
+  </div>
 <div>
   <p>
-  Player Two is designed to run searches in the background while you browse online. Why? If you're going to see ads anyway, you might as well see some that might have a positive effect on your life. By flooding your google searches with a specific topic (and clicking on some ads) in a separate tab, we can influence the selections that google AdChoices makes when serving ads to your browser.
+  Other stuff
   </p>
-  <p>
-  The three add choices are fitness, education, and travel. Please select one and click save. If you get tired of the searches running, go ahead and click the toadstool icon a second time, and the new tab will close.
-  </p>
+
   <p>
   Thanks!
   </p>

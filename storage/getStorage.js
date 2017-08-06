@@ -14,7 +14,18 @@ function temp(){
 	window.alert("hello!")
 }
 
-
+function filterByName(custArray,searchName){
+	var mycustomer
+	console.log(custArray)
+	console.log(searchName)
+	custArray.forEach(function(customer){
+		console.log(customer.name)
+		if(customer.name===searchName){
+			mycustomer= customer;
+		}
+	})
+	return mycustomer
+}
 
 function hello() {
   chrome.tabs.executeScript({
@@ -24,21 +35,51 @@ function hello() {
 
 function handleClick() {
 	
-	var account = $('#account')
-	var results = $('result');
 
-	var cheese = $('#account')
-	results.innerText= "you selected " + cheese;
-   
-    
-}
+};
+
 $( document ).ready(function() {
     console.log( "ready!" );
-    $('#account').on("change", function(){
-		var account = document.getElementById('account').value;
-		var results = document.getElementById('result');
-		results.innerText= "please! " + account;
-	});
+
+    $.getJSON('/storage/settingsData.json',function(data){
+    	console.log(data.customers);
+    	var env;
+    	var account;
+    	$.each(data.customers, function(){
+	        $("<option />")
+	        .attr("value", this.name)
+	        .html(this.name)
+	        .appendTo("#account");
+    	});
+
+    	$('#account').on("change", function(){
+			account = $('#account').val();
+			var results = $('#result1');
+			results.text("you selected " + account);
+		});
+
+		$('#env').on("change", function(){
+
+			env = $('#env').val();
+			var results = $('#result2');
+			results.text("in the " + env + " environment");
+		});
+
+		$('#checkbutton').on('click',function(){
+			var customer = filterByName(data.customers,account);
+			$('#snippet-display').text(customer.snippetURl[env]);
+		})
+
+		$('form').on('submit', function(e){
+	    	event.preventDefault();
+	    	//hello();
+		  });
+
+
+
+    }); //end data inner function
+
+    
 });
 
 

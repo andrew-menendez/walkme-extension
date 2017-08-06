@@ -1,3 +1,13 @@
+
+body {
+	font-size: 14px;
+	font-family: arial;
+	background: #f4f4f4;
+	line-height: 1.2em;
+}
+
+
 #popup_main_div {
 	min-width: 300px;
+	max-width: 500px;
 }
