@@ -33,10 +33,42 @@ function hello() {
   }); 
 }
 
-function handleClick() {
-	
+function injectWalkMe(url) {
+	console.log(url)
+	var snippet=`(function() {
+					var walkme = document.createElement('script');
+					walkme.type = 'text/javascript';
+					walkme.async = true;
+					walkme.src = '${url}';
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(walkme, s);
+					window._walkmeConfig = {
+						smartLoad: true
+					};
+				})();`
 
+	console.log(snippet);
+	chrome.tabs.executeScript({
+	    code: snippet
+	  }); 
 };
+
+// function removeWalkMe(){
+// 	var custom=`(function() {
+// 					var x = document.createElement('script');
+// 					x.type = 'text/javascript';
+					
+// 					x.innerText= 'alert('hello')';
+// 					var body = document.body;
+// 					body.insertAfter(x);
+					
+// 				})();`
+
+// 	console.log(snippet);
+// 	chrome.tabs.executeScript({
+// 	    code: custom
+// 	  }); 
+// }
 
 $( document ).ready(function() {
     console.log( "ready!" );
@@ -45,6 +77,7 @@ $( document ).ready(function() {
     	console.log(data.customers);
     	var env;
     	var account;
+    	var customerUrl;
     	$.each(data.customers, function(){
 	        $("<option />")
 	        .attr("value", this.name)
@@ -55,7 +88,12 @@ $( document ).ready(function() {
     	$('#account').on("change", function(){
 			account = $('#account').val();
 			var results = $('#result1');
+			
 			results.text("you selected " + account);
+
+			var customer = filterByName(data.customers,account);
+			$('#email-display').text("snippet email = "+customer.snippetEmail)
+
 		});
 
 		$('#env').on("change", function(){
@@ -63,15 +101,25 @@ $( document ).ready(function() {
 			env = $('#env').val();
 			var results = $('#result2');
 			results.text("in the " + env + " environment");
+
 		});
 
 		$('#checkbutton').on('click',function(){
 			var customer = filterByName(data.customers,account);
 			$('#snippet-display').text(customer.snippetURl[env]);
+			customerUrl=customer.snippetURl[env]
 		})
 
+		$('#inject').on('click', function(){
+			var customer = filterByName(data.customers,account);
+			customerUrl=customer.snippetURl[env];
+			injectWalkMe(customerUrl);
+		})
+
+		// $('#remove').on('click', removeWalkMe);
+
 		$('form').on('submit', function(e){
-	    	event.preventDefault();
+	    	e.preventDefault();
 	    	//hello();
 		  });
 
@@ -81,8 +129,3 @@ $( document ).ready(function() {
 
     
 });
-
-
-document.getElementById("form").addEventListener("submit", handleClick);
-
-document.getElementById('clickme').addEventListener('click', hello);

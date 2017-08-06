@@ -1,10 +1,10 @@
 {
 	"customers": [{
-		"name": "Northwind",
+		"name": "Andrew Account",
 		"snippetEmail": "andrew.m@walkme.com",
 		"snippetURl":{
-			"prod":"https://northwind...ee9314bffaf12ec06e41f026b/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
-			"test":"northwindddd test",
+			"prod":"https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
+			"test":"https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/test/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
 			"success":"nw seccess"
 		}
 	

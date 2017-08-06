@@ -9,14 +9,6 @@ function wm(_tab) {
 }
 
 
-function getStorage(){
-
-	return "apples";
-}
-
-function temp(funcX){
-	window.alert(funcX.call())
-}
 
 
 ///inject here
@@ -24,7 +16,7 @@ function temp(funcX){
 //should trigger when the icon is clicked
 chrome.browserAction.onClicked.addListener(function(tab) {
 	//self executing function
-	wm(tab);
+	//wm(tab);
 	
 	
 });
