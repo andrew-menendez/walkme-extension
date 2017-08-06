@@ -6,7 +6,8 @@
   "permissions": ["storage","activeTab","tabs","http://*/","https://*/"],
   "browser_action": {
     "default_icon": "icons/inject-48.png",
-    "default_title": "Inject!"
+    "default_title": "Inject!",
+    "default_popup":"/settings/settings.html"
   },
   "icons":{
     "16":"/icons/inject-16.png",

@@ -1,0 +1,15 @@
+{
+	"customers": [{
+		"name": "Northwind",
+		"snippetEmail": "andrew.m@walkme.com",
+		"prodSrcURL": "https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
+		"testSrcURL": "xxxxx",
+		"successSrcURL": "urlrtul"
+	}, {
+		"name": "Amazon",
+		"snippetEmail": "phil.m@walkme.com",
+		"prodSrcURL": "https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
+		"testSrcURL": "yyy",
+		"successSrcURL": "vvvvv"
+	}]
+}
