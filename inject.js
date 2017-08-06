@@ -9,6 +9,15 @@ function wm(_tab) {
 }
 
 
+function getStorage(){
+
+	return "apples";
+}
+
+function temp(funcX){
+	window.alert(funcX.call())
+}
+
 
 ///inject here
 

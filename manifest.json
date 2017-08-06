@@ -15,7 +15,7 @@
     "128":"/icons/inject-128.png"
   },
   "background": {
-    //"page":"background.html",
+    //"page":"background.html", ,"/storage/getStorage.js"
     "scripts": ["inject.js"],
     "persistent": false
     },
