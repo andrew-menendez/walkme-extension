@@ -10,12 +10,13 @@ function wm(_tab) {
 
 
 
+
 ///inject here
-console.log("I'm alive");
+
 //should trigger when the icon is clicked
 chrome.browserAction.onClicked.addListener(function(tab) {
 	//self executing function
-	wm(tab);
+	//wm(tab);
 	
 	
 });

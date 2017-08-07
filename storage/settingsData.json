@@ -1,0 +1,20 @@
+{
+	"customers": [{
+		"name": "Andrew Account",
+		"snippetEmail": "andrew.m@walkme.com",
+		"snippetURl":{
+			"prod":"https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
+			"test":"https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/test/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
+			"success":"nw seccess"
+		}
+	
+	}, {
+		"name": "Amazon",
+		"snippetEmail": "phil.m@walkme.com",
+		"snippetURl":{
+			"prod":"https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
+			"test":"ahahah",
+			"success":"bdbdbd"
+		}
+	}]
+}

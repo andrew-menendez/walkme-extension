@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Test Extension Options</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  
+</head>
+
+<body>
+<div id="popup_main_div">
+  <div id="header">
+    <h1>Custom Injector</h1>
+  </div>
+
+  <form id = "form" >
+        <label>Account</label>
+        <select id="account">
+        <option>pick an account</option>
+        <!-- options inserted via jquery -->
+        </select>
+        <br>
+        <label>Environment</label>
+        <select id="env">
+        <option>pick an env</option>
+         <option value="prod">prod</option>
+         <option value="test">test</option>
+         <option value="success">success</option>
+        </select>
+        <br>
+
+        <br>
+        
+  </form>
+  <p id="result1"> you selected</p>
+  <p id="email-display">snippet email</p>
+  <p id="result2">environment </p>
+  <textarea rows="4" cols="50" id="snippet-display">your snippet url </textarea>
+  <br>
+  <button id="checkbutton">Check Snippet</button>
+  <br>
+  <div id="injectbuttonarea">
+    <button id="inject">Inject Snippet</button>
+  </div>
+<div>
+  <p>
+  Other stuff
+  </p>
+  <!-- <button id="remove">Remove WalkMe</button> -->
+  <p>
+  Thanks!
+  </p>
+</div>
+
+
+  
+</div>
+<script src="/storage/getStorage.js"></script>
+</body>
+</html>
