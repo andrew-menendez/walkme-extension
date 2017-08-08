@@ -9,12 +9,12 @@
 		}
 	
 	}, {
-		"name": "Amazon",
+		"name": "Gerber",
 		"snippetEmail": "phil.m@walkme.com",
 		"snippetURl":{
-			"prod":"https://cdn.walkme.com/users/39e87b9ee9314bffaf12ec06e41f026b/walkme_39e87b9ee9314bffaf12ec06e41f026b_https.js",
-			"test":"ahahah",
-			"success":"bdbdbd"
+			"prod":"https://cdn.walkme.com/users/c3df11c83ba34c86a2b6f546f7daf397/walkme_c3df11c83ba34c86a2b6f546f7daf397_https.js",
+			"test":"https://cdn.walkme.com/users/c3df11c83ba34c86a2b6f546f7daf397/test/walkme_c3df11c83ba34c86a2b6f546f7daf397_https.js",
+			"success":"https://cdn.walkme.com/users/c3df11c83ba34c86a2b6f546f7daf397/success/walkme_c3df11c83ba34c86a2b6f546f7daf397_https.js"
 		}
 	}]
 }
