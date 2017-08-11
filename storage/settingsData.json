@@ -32,5 +32,13 @@
 			"test":"https://cdn.walkme.com/users/85357843f1344b0585b7fc9a94fe9c2b/test/walkme_85357843f1344b0585b7fc9a94fe9c2b_https.js",
 			"success":"https://cdn.walkme.com/users/85357843f1344b0585b7fc9a94fe9c2b/success/walkme_85357843f1344b0585b7fc9a94fe9c2b_https.js"
 		}
+	},{
+		"name": "Everstring",
+		"snippetEmail": "everstring@walkme.com",
+		"snippetURl":{
+			"prod":"https://cdn.walkme.com/users/8e3b268750af4e1b931027124f5e87a6/walkme_8e3b268750af4e1b931027124f5e87a6_https.js",
+			"test":"https://cdn.walkme.com/users/8e3b268750af4e1b931027124f5e87a6/test/walkme_8e3b268750af4e1b931027124f5e87a6_https.js",
+			"success":"https://cdn.walkme.com/users/8e3b268750af4e1b931027124f5e87a6/success/walkme_8e3b268750af4e1b931027124f5e87a6_https.js"
+		}
 	}]
 }
