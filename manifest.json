@@ -16,10 +16,19 @@
   },
   "background": {
     //"page":"background.html", ,"/storage/getStorage.js"
-    "scripts": ["inject.js"],
-    "persistent": false
-    },
-
+    //"scripts": ["inject.js"],
+    //"persistent": false
+  },
+  // "content_scripts": [
+  //   {
+  //     "matches": ["http://*/*", "https://*/*"],
+  //     //"js": ["inject.js"],
+  //     "all_frames": true
+  //   }
+  // ],
+  "web_accessible_resources": [
+    "content.js"
+  ],
   "options_ui": {
     // Required.
     "page": "/options/options.html",

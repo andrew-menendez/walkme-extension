@@ -42,6 +42,69 @@ function injectWalkMe(url) {
 
 
 
+
+
+var pluginExplain = function(){
+
+	var customSettings = Object.keys(window._walkMe.getSiteConfig().Custom);
+	console.log(customSettings);
+	var documentationURL = "https://delivery.walkmedev.com/plugins/";
+	var displayString = "This Environment has the following plugins deployed: \n";
+	var pluginDict = {
+		"SearchEndedDeployable":{
+			"plugin": "wm-plugin-search-ended-deployable",
+			"desc": "Customizes No Search Results screen so we can add the Contact support link"
+		},
+		"categorizedSearchResults":{
+			"plugin":"wm-plugin-categorized-search-results",
+			"desc":"Inserts Category items in the Search Results page"
+		},
+		"randomMenuPosition":{
+			"plugin":"wm-plugin-random-menu-position",
+			"desc":"Moves the Menu over to fall below the “Help” dropdown on the site"
+		},
+		"mandatorySurveyQuestions":{
+			"plugin":"n/a",
+			"desc":"makes some survey questions mandatory"
+		},
+		"someThingElse":{
+			"plugin":"whatever",
+			"desc":"example"
+		}
+	};
+	
+	customSettings.forEach(function(setting){
+		var pluginName= pluginDict[setting] ? pluginDict[setting].plugin : setting;
+		var pluginDesc = pluginDict[setting] ? pluginDict[setting].desc : "does something unknown";
+		var pluginString = `${pluginName} , which ${pluginDesc}. \n`;
+		displayString=displayString.concat(pluginString);
+	})
+	console.log(displayString);
+
+	return displayString;
+}
+
+function injectExplain() {
+
+	var snippet=`(function() {
+					var explain = document.createElement('script');
+					explain.type = 'text/javascript';
+					explain.async = true;
+					explain.innerHTML='console.log(window); console.log(window._walkMe); alert(Object.keys(window._walkMe.getSiteConfig().Custom))'
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(explain, s);
+					window._explain = {
+						hello: true
+					};
+				})();`
+
+	
+	chrome.tabs.executeScript({
+	    code: snippet
+	  }); 
+};
+
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
@@ -119,6 +182,8 @@ $( document ).ready(function() {
 			customerUrl=customer.snippetURl[env];
 			injectWalkMe(customerUrl);
 		})
+
+		$('#plugin-explain-button').on('click',injectExplain);
 
 		// $('#remove').on('click', removeWalkMe);
 
