@@ -3,7 +3,7 @@
   "version":"1.0",
   "manifest_version":2,
   "description": "My fake injector",
-  "permissions": ["storage","activeTab","tabs","http://*/","https://*/"],
+  "permissions": ["storage","cookies","activeTab","tabs","http://*/","https://*/"],
   "browser_action": {
     "default_icon": "icons/inject-48.png",
     "default_title": "Inject!",
@@ -29,6 +29,9 @@
   "web_accessible_resources": [
     "content.js"
   ],
+  "externally_connectable": {//for messaging.  but, needs url... cant 
+  "matches": ["*://*.dyn.yuniquecloud.com/*"]
+  },
   "options_ui": {
     // Required.
     "page": "/options/options.html",

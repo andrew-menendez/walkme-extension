@@ -8,10 +8,9 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 
 function filterByName(custArray,searchName){
 	var mycustomer
-	console.log(custArray)
-	console.log(searchName)
+	
 	custArray.forEach(function(customer){
-		console.log(customer.name)
+		
 		if(customer.name===searchName){
 			mycustomer= customer;
 		}
@@ -21,7 +20,7 @@ function filterByName(custArray,searchName){
 
 
 function injectWalkMe(url) {
-	console.log(url)
+	
 	var snippet=`(function() {
 					var walkme = document.createElement('script');
 					walkme.type = 'text/javascript';
@@ -90,12 +89,10 @@ function injectExplain() {
 					var explain = document.createElement('script');
 					explain.type = 'text/javascript';
 					explain.async = true;
-					explain.innerHTML='console.log(window); console.log(window._walkMe); alert(Object.keys(window._walkMe.getSiteConfig().Custom))'
+					explain.innerHTML='console.log(window);document.cookie = "injector="+Object.keys(window._walkMe.getSiteConfig().Custom).toString(); alert(Object.keys(window._walkMe.getSiteConfig().Custom))'
 					var s = document.getElementsByTagName('script')[0];
 					s.parentNode.insertBefore(explain, s);
-					window._explain = {
-						hello: true
-					};
+					
 				})();`
 
 	
@@ -104,12 +101,26 @@ function injectExplain() {
 	  }); 
 };
 
+console.log(chrome.runtime.id);
+
+//listen for message from background site
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+  	console.log(request);
+    if (request.greeting == "hello")
+      sendResponse({farewell: "goodbye"});
+  });
+
+chrome.cookies.getAll({}, function(cooks){
+	//alert(cooks);
+	console.log(cooks);
+})
 
 $( document ).ready(function() {
     console.log( "ready!" );
 
     $.getJSON('/storage/settingsData.json',function(data){
-    	console.log(data.customers);
+    	//console.log(data.customers);
     	var env;
     	var account;
     	var customerUrl;
@@ -122,7 +133,7 @@ $( document ).ready(function() {
     	});
 
     	chrome.storage.sync.get(null,function(settings){
-    		console.log(settings);
+    		//console.log(settings);
 
 			if(settings.customer){
 				account=settings.customer;
@@ -137,7 +148,7 @@ $( document ).ready(function() {
 			if(settings.snippetURl){
 				customerUrl=settings.snippetURl;
 			}
-		})
+		});
 
     	$('#account').on("change", function(){
 			account = $('#account').val();	
