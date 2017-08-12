@@ -83,23 +83,48 @@ var pluginExplain = function(){
 	return displayString;
 }
 
-function injectExplain() {
+function injectExplain(customer) {
+	var account="\"injector_"+customer+"\"";
 
 	var snippet=`(function() {
+					
 					var explain = document.createElement('script');
 					explain.type = 'text/javascript';
 					explain.async = true;
-					explain.innerHTML='console.log(window);document.cookie = "injector="+Object.keys(window._walkMe.getSiteConfig().Custom).toString(); alert(Object.keys(window._walkMe.getSiteConfig().Custom))'
+					explain.innerHTML='console.log(window._walkMe);document.cookie = ${account}+"="+Object.keys(window._walkMe.getSiteConfig().Custom).toString(); console.log(Object.keys(window._walkMe.getSiteConfig().Custom))'
 					var s = document.getElementsByTagName('script')[0];
 					s.parentNode.insertBefore(explain, s);
 					
 				})();`
 
-	
 	chrome.tabs.executeScript({
 	    code: snippet
-	  }); 
+	  },getCookie(account)); 
 };
+
+
+function parseCookieObject(cookies){
+	
+}
+
+function getCookie(account){
+	let accountName=account.split("\"")[1];
+
+	chrome.cookies.getAll({}, function(cookies){
+		
+		var installedPlugins="";
+		cookies.forEach(function(cook){
+
+			if (cook.name.toString() == accountName){
+				
+				installedPlugins=installedPlugins.concat(cook.value,",");
+			}
+		});
+
+		console.log("installed plugins are: " + installedPlugins);
+
+	})
+}
 
 console.log(chrome.runtime.id);
 
@@ -112,12 +137,13 @@ chrome.runtime.onMessage.addListener(
   });
 
 chrome.cookies.getAll({}, function(cooks){
-	//alert(cooks);
+	
 	console.log(cooks);
 })
 
 $( document ).ready(function() {
     console.log( "ready!" );
+
 
     $.getJSON('/storage/settingsData.json',function(data){
     	//console.log(data.customers);
@@ -131,6 +157,8 @@ $( document ).ready(function() {
 	        .html(this.name)
 	        .appendTo("#account");
     	});
+
+    	//injectExplain();
 
     	chrome.storage.sync.get(null,function(settings){
     		//console.log(settings);
@@ -194,7 +222,11 @@ $( document ).ready(function() {
 			injectWalkMe(customerUrl);
 		})
 
-		$('#plugin-explain-button').on('click',injectExplain);
+		$('#plugin-explain-button').on('click',function(){
+			//error checking for account goes here
+			console.log(account);
+			injectExplain(account);
+		});
 
 		// $('#remove').on('click', removeWalkMe);
 
