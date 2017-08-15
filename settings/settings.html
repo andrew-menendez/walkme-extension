@@ -2,50 +2,84 @@
 <html>
 <head>
   <title>My Test Extension Options</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
   
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
-<div id="popup_main_div">
-  <div id="header">
-    <h1>Custom Injector</h1>
+<div class="container" id="popup_main_div">
+
+  <div class="row" id="header">
+    <div class="twelve columns">
+      <h4>Custom Injector</h4>
+    </div>
   </div>
 
-  <form id = "form" >
-        <label>Account</label>
-        <select id="account">
-        <option>pick an account</option>
-        <!-- options inserted via jquery -->
-        </select>
-        <br>
-        <label>Environment</label>
-        <select id="env">
-        <option>pick an env</option>
-         <option value="prod">prod</option>
-         <option value="test">test</option>
-         <option value="success">success</option>
-        </select>
-        <br>
+<div class=" double-dropdowns row">
+  <div class="twelve columns">
+    
+    <div class="row">
+        <div class="two columns">
+        </div>
+        <div class="five columns">
+          <label>Account</label>
+          <select id="account">
+          <option>pick an account</option>
+          <!-- options inserted via jquery -->
+          </select>
+        </div>
+    
+        <div class="five columns">
+          <label>Environment</label>
+          <select id="env">
+          <option>pick an env</option>
+           <option value="prod">prod</option>
+           <option value="test">test</option>
+           <option value="success">success</option>
+          </select>
+        </div>
+    </div>
+  </div>
+</div>
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Current Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Account</td>
+      <td id="acc-value"></td>
+    </tr>
+    <tr>
+      <td>Editor Email</td>
+      <td id="email-display">42</td>
+    </tr>
+    <tr>
+      <td>Environment</td>
+      <td id="env-value">42</td>
+    </tr>
+  </tbody>
+</table>
 
-        <br>
-        
-  </form>
-  <p id="result1"> you selected</p>
-  <p id="email-display">snippet email</p>
-  <p id="result2">environment </p>
-  <textarea rows="4" cols="50" id="snippet-display">your snippet url </textarea>
+<div class="row">
+  <div class="twelve columns">
+  <textarea id="snippet-display">your snippet url </textarea>
+  </div>
+</div>
   <br>
   <button id="checkbutton">Check Snippet</button>
   <br>
-  <br>
   <button id="save-settings-button">Store</button>
   <br>
-  <br>
   <div id="injectbuttonarea">
-    <button id="inject">Inject Snippet</button>
+    <button class="button button-primary" id="inject">Inject Snippet</button>
   </div>
-  <br>
   <br>
     <button id="plugin-explain-button">Explain Plugins</button>
 <div>

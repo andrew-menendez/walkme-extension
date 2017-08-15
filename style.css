@@ -1,13 +1,16 @@
 
 body {
-	font-size: 14px;
-	font-family: arial;
+	margin:5px;
 	background: #f4f4f4;
-	line-height: 1.2em;
+	
 }
 
+#snippet-display {
+	min-width: 500px;
+}
 
 #popup_main_div {
-	min-width: 300px;
-	max-width: 500px;
+	min-width: 560px;
+	max-width: 600px;
+	max-height: 400px;
 }

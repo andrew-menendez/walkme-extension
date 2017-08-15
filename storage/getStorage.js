@@ -165,13 +165,13 @@ $( document ).ready(function() {
 
 			if(settings.customer){
 				account=settings.customer;
-				$('#result1').text("current account: " + account)
+				$('#acc-value').text(account)
 				var customer = filterByName(data.customers,account);
-				$('#email-display').text("snippet email = "+customer.snippetEmail)
+				$('#email-display').text(customer.snippetEmail)
 			};
 			if(settings.environment){
 				env=settings.environment;
-				$('#result2').text("current environment: " + env);
+				$('#env-value').text(env);
 			}
 			if(settings.snippetURl){
 				customerUrl=settings.snippetURl;
@@ -180,17 +180,17 @@ $( document ).ready(function() {
 
     	$('#account').on("change", function(){
 			account = $('#account').val();	
-			$('#result1').text("current account: " + account);
+			$('#acc-value').text(account);
 
 			var customer = filterByName(data.customers,account);
-			$('#email-display').text("snippet email = "+customer.snippetEmail)
+			$('#email-display').text(customer.snippetEmail)
 
 		});
 
 		$('#env').on("change", function(){
 
 			env = $('#env').val();
-			$('#result2').text("current environment: " + env);
+			$('#env-value').text(env);
 
 		});
 
@@ -230,10 +230,10 @@ $( document ).ready(function() {
 
 		// $('#remove').on('click', removeWalkMe);
 
-		$('form').on('submit', function(e){
-	    	e.preventDefault();
-	    	//hello();
-		  });
+		// $('form').on('submit', function(e){
+	 //    	e.preventDefault();
+	 //    	//hello();
+		//   });
 
     }); //end data inner function
 
