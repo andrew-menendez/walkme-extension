@@ -208,11 +208,8 @@ $( document ).ready(function() {
 			  }, function() {
 			    // Update status to let user know options were saved.
 			    var status = $('#status');
-			    status.text('Options saved. ' + account + " " + env);
-				    // setTimeout(function() {
-				    //   status.innerText = '';
-				    // }, 750);
-
+			    status.text('Options Stored');
+				    
 			  });
 		});
 

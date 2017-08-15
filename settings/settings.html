@@ -64,6 +64,10 @@
       <td>Environment</td>
       <td id="env-value">42</td>
     </tr>
+    <tr>
+      <td>Save Status</td>
+      <td id="status"></td>
+    </tr>
   </tbody>
 </table>
 
@@ -72,28 +76,18 @@
   <textarea id="snippet-display">your snippet url </textarea>
   </div>
 </div>
-  <br>
-  <button id="checkbutton">Check Snippet</button>
-  <br>
-  <button id="save-settings-button">Store</button>
-  <br>
-  <div id="injectbuttonarea">
-    <button class="button button-primary" id="inject">Inject Snippet</button>
-  </div>
-  <br>
-    <button id="plugin-explain-button">Explain Plugins</button>
-<div>
-  <p id="status">
-  
-  </p>
-  <!-- <button id="remove">Remove WalkMe</button> -->
-  <p>
-  Thanks!
-  </p>
+<div id="button-area" class="row">
+  <div class="twelve columns">
+    <button class="button" id="checkbutton">Check Snippet</button>
+
+    <button class="button" id="save-settings-button">Store</button>
+    <button class="button" id="plugin-explain-button">Explain Plugins</button>
+    <div id="injectbuttonarea">
+      <button class="button button-primary" id="inject">Inject Snippet</button>
+    </div>
+    </div>
 </div>
 
-
-  
 </div>
 <script src="/storage/getStorage.js"></script>
 </body>
